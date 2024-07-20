@@ -4,7 +4,7 @@ import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 
 export interface GalleryItem {
-  type: 'imagem' | 'video'
+  type: 'image' | 'video'
   url: string
 }
 

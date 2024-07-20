@@ -12,11 +12,11 @@ import fechar from '../../assets/images/close.png'
 
 const mock: GalleryItem[] = [
   {
-    type: 'imagem',
+    type: 'image',
     url: hogwarts1
   },
   {
-    type: 'imagem',
+    type: 'image',
     url: hogwarts1
   },
   {
@@ -28,35 +28,34 @@ const mock: GalleryItem[] = [
 type Props = {
   defaultCover: string
   name: string
+  items: GalleryItem[]
 }
 
 interface ModalState extends GalleryItem {
   isVisible: boolean
 }
 
-const Gallery = ({ defaultCover, name }: Props) => {
+const Gallery = ({ defaultCover, name, items }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
-    type: 'imagem',
+    type: 'image',
     url: ''
   })
-  const [modalEstaAberto, setModalEstaAberto] = useState(false)
-  const [modalUrl, setModalUrl] = useState('')
 
   const GetMediaCover = (item: GalleryItem) => {
-    if (item.type === 'imagem') return item.url
+    if (item.type === 'image') return item.url
     return defaultCover
   }
 
   const GetMediaIcon = (item: GalleryItem) => {
-    if (item.type === 'imagem') return zoom
+    if (item.type === 'image') return zoom
     return play
   }
 
   const closeModal = () => {
     setModal({
       isVisible: false,
-      type: 'imagem',
+      type: 'image',
       url: ''
     })
   }
@@ -65,7 +64,7 @@ const Gallery = ({ defaultCover, name }: Props) => {
     <>
       <Section title="Galeria" background="black">
         <Items>
-          {mock.map((media, index) => (
+          {items.map((media, index) => (
             <Item
               key={media.url}
               onClick={() => {
@@ -74,8 +73,6 @@ const Gallery = ({ defaultCover, name }: Props) => {
                   type: media.type,
                   url: media.url
                 })
-                setModalEstaAberto(true)
-                setModalUrl(media.url)
               }}
             >
               <img
@@ -104,7 +101,7 @@ const Gallery = ({ defaultCover, name }: Props) => {
               }}
             />
           </header>
-          {modal.type === 'imagem' ? (
+          {modal.type === 'image' ? (
             <img src={modal.url} alt="" />
           ) : (
             <iframe frameBorder={0} src={modal.url} />
