@@ -10,7 +10,7 @@ export type Props = {
   games: Game[]
 }
 
-export const formataTexto = (preco = 0) => {
+export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -30,7 +30,7 @@ const ProductsList = ({ background, title, games }: Props) => {
     }
 
     if (game.prices.current) {
-      tags.push(formataTexto(game.prices.current))
+      tags.push(formataPreco(game.prices.current))
     }
 
     return tags

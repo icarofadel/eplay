@@ -6,7 +6,7 @@ import { Imagem, Titulo, Precos } from './styles'
 import Tag from '../Tag'
 import Button from '../Button'
 
-import { formataTexto } from '../ProductsList'
+import { formataPreco } from '../ProductsList'
 
 import { useGetFeatureGameQuery } from '../../services/api'
 
@@ -24,8 +24,8 @@ const Banner = () => {
         <div>
           <Titulo>{game.name}</Titulo>
           <Precos>
-            De <span>{formataTexto(game.prices.old)}</span> <br />
-            por apenas {formataTexto(game.prices.current)}
+            De <span>{formataPreco(game.prices.old)}</span> <br />
+            por apenas {formataPreco(game.prices.current)}
           </Precos>
         </div>
         <Button
