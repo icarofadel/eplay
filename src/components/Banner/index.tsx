@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-
-import { Game } from '../../pages/Home'
 import { Imagem, Titulo, Precos } from './styles'
 
 import Tag from '../Tag'
