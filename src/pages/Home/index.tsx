@@ -1,7 +1,7 @@
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 
-import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api' // Aqui
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 export interface GalleryItem {
   type: 'image' | 'video'
@@ -51,7 +51,7 @@ const Home = () => {
           games={soonGames}
           title="Em breve"
           background="black"
-          id="em-breve"
+          id="coming-soon"
         />
       </>
     )

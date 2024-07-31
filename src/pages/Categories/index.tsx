@@ -6,14 +6,14 @@ import {
   useGetSimulationsGamesQuery,
   useGetFightGamesQuery,
   useGetRpgGamesQuery
-} from '../../services/api' // AQUI
+} from '../../services/api'
 
 const Categories = () => {
-  const { data: actionGames } = useGetActionGamesQuery() // AQUI
-  const { data: sportesGames } = useGetSportesGamesQuery() // AQUI
-  const { data: simulationGames } = useGetSimulationsGamesQuery() // AQUI
-  const { data: fightGames } = useGetFightGamesQuery() // AQUI
-  const { data: rpgGames } = useGetRpgGamesQuery() // AQUI
+  const { data: actionGames } = useGetActionGamesQuery()
+  const { data: sportesGames } = useGetSportesGamesQuery()
+  const { data: simulationGames } = useGetSimulationsGamesQuery()
+  const { data: fightGames } = useGetFightGamesQuery()
+  const { data: rpgGames } = useGetRpgGamesQuery()
 
   if (
     actionGames &&
