@@ -34,32 +34,41 @@ const Cart = () => {
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
-        <ul>
-          {items.map((item) => (
-            <S.CartItem key={item.id}>
-              <img src={item.media.thumbnail} alt={item.name} />
-              <div>
-                <h3>{item.name}</h3>
-                <Tag>{item.details.category}</Tag>
-                <Tag>{item.details.system}</Tag>
-                <span>{parseToBrl(item.prices.current)}</span>
-              </div>
-              <button onClick={() => removeItem(item.id)} type="button" />
-            </S.CartItem>
-          ))}
-        </ul>
-        <S.Quatity>{items.length} Jogos(s) no carrinho</S.Quatity>
-        <S.Prices>
-          Total de {parseToBrl(getTotalPrice(items))}{' '}
-          <span>Em até 6x sem juros</span>
-        </S.Prices>
-        <Button
-          type={'button'}
-          title={'Clique aqui para continuar com a compra'}
-          onClick={goToCheckout}
-        >
-          Continuar com a compra
-        </Button>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <S.CartItem key={item.id}>
+                  <img src={item.media.thumbnail} alt={item.name} />
+                  <div>
+                    <h3>{item.name}</h3>
+                    <Tag>{item.details.category}</Tag>
+                    <Tag>{item.details.system}</Tag>
+                    <span>{parseToBrl(item.prices.current)}</span>
+                  </div>
+                  <button onClick={() => removeItem(item.id)} type="button" />
+                </S.CartItem>
+              ))}
+            </ul>
+            <S.Quatity>{items.length} Jogos(s) no carrinho</S.Quatity>
+            <S.Prices>
+              Total de {parseToBrl(getTotalPrice(items))}{' '}
+              <span>Em até 6x sem juros</span>
+            </S.Prices>
+            <Button
+              type={'button'}
+              title={'Clique aqui para continuar com a compra'}
+              onClick={goToCheckout}
+            >
+              Continuar com a compra
+            </Button>
+          </>
+        ) : (
+          <p className="empty-text">
+            O carrinho está vazia, adicione pelo menos um produto para continuar
+            a compra
+          </p>
+        )}
       </S.Sidebar>
     </S.CartContainer>
   )
