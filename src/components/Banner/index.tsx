@@ -1,5 +1,6 @@
 import Tag from '../Tag'
 import Button from '../Button'
+import Loader from '../Loader/intex'
 
 import { parseToBrl } from '../../utils'
 
@@ -11,7 +12,7 @@ const Banner = () => {
   const { data: game } = useGetFeatureGameQuery()
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
